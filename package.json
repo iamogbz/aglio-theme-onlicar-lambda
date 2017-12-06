@@ -1,6 +1,6 @@
 {
   "name": "aglio-theme-onlicar",
-  "version": "1.6.3",
+  "version": "1.6.4",
   "description": "ONLICAR theme for the Aglio API Blueprint renderer",
   "main": "lib/main.js",
   "scripts": {
