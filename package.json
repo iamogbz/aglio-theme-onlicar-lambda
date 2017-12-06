@@ -1,7 +1,7 @@
 {
   "name": "aglio-theme-onlicar",
   "version": "1.6.3",
-  "description": "Default theme for the Aglio API Blueprint renderer",
+  "description": "ONLICAR theme for the Aglio API Blueprint renderer",
   "main": "lib/main.js",
   "scripts": {
     "build": "coffeelint src/*.coffee && coffee -o lib -c src",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/danielgtaylor/aglio"
+    "url": "https://github.com/onlicar/aglio-theme-onlicar"
   },
   "keywords": [
     "api",
@@ -30,9 +30,9 @@
   "author": "Daniel G. Taylor",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/danielgtaylor/aglio/issues"
+    "url": "https://github.com/onlicar/aglio-theme-onlicar/issues"
   },
-  "homepage": "https://github.com/danielgtaylor/aglio/tree/olio-theme",
+  "homepage": "https://github.com/onlicar/aglio-theme-onlicar/tree/olio-theme",
   "dependencies": {
     "coffee-script": "^1.8.0",
     "highlight.js": "^8.4.0",
