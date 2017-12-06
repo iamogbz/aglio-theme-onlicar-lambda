@@ -1,4 +1,4 @@
-# Aglio Default Theme
+# Aglio ONLICAR Theme
 
 [![NPM version](http://img.shields.io/npm/v/aglio-theme-onlicar.svg)](https://www.npmjs.org/package/aglio-theme-onlicar) [![License](http://img.shields.io/npm/l/aglio-theme-onlicar.svg)](https://www.npmjs.org/package/aglio-theme-onlicar)
 
