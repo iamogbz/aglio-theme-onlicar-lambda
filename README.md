@@ -15,7 +15,7 @@ $ aglio -i blueprint.apib -t onlicar -o MyAPI.html
 
 ## Theme Options
 
-Olio comes with a handful of configurable theme options. These are set via the `--theme-XXX` parameter, where `XXX` is one of the following:
+The theme comes with a handful of configurable theme options. These are set via the `--theme-XXX` parameter, where `XXX` is one of the following:
 
 Name           | Description
 -------------- | ------------------
