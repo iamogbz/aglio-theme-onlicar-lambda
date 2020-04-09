@@ -1,5 +1,7 @@
 crypto = require 'crypto'
-fs = require 'fs'
+nodefs = require 'fs'
+memfs = require 'memfs'
+unionfs = require 'unionfs'
 hljs = require 'highlight.js'
 jade = require 'jade'
 less = require 'less'
@@ -15,6 +17,8 @@ renderSchema = require './schema'
 ROOT = path.dirname __dirname
 
 cache = {}
+
+fs = unionfs.ufs.use(memfs.vol).use(nodefs)
 
 # Utility for benchmarking
 benchmark =

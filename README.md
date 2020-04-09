@@ -1,15 +1,15 @@
-# Aglio ONLICAR Theme
+# Aglio ONLICAR Lambda Theme
 
-[![NPM version](http://img.shields.io/npm/v/aglio-theme-onlicar.svg)](https://www.npmjs.org/package/aglio-theme-onlicar) [![License](http://img.shields.io/npm/l/aglio-theme-onlicar.svg)](https://www.npmjs.org/package/aglio-theme-onlicar)
+[![NPM version](http://img.shields.io/npm/v/aglio-theme-onlicar-lambda.svg)](https://www.npmjs.org/package/aglio-theme-onlicar-lambda) [![License](http://img.shields.io/npm/l/aglio-theme-onlicar-lambda.svg)](https://www.npmjs.org/package/aglio-theme-onlicar-lambda)
 
-This is the ONLICAR theme engine for [Aglio](https://github.com/danielgtaylor/aglio). It is based off of the style of Apiary docs and forked from the default Aglio theme, Olio.
+This is a lambda compatible ONLICAR theme engine for [Aglio](https://github.com/danielgtaylor/aglio). It is based off of the style of Apiary docs and forked from the default Aglio theme, Olio.
 
 ![Screenshot](https://i.imgur.com/ahqZkvC.png)
 
 Example use:
 
 ```bash
-$ npm install aglio-theme-onlicar
+$ npm install aglio-theme-onlicar-lambda
 $ aglio -i blueprint.apib -t onlicar -o MyAPI.html
 ```
 
