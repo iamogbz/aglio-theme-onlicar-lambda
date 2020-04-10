@@ -1,5 +1,8 @@
 crypto = require 'crypto'
-fs = require 'fs'
+nodefs = require 'fs'
+memfs = require 'memfs'
+unionfs = require 'unionfs'
+requireFromString = require 'require-from-string'
 hljs = require 'highlight.js'
 jade = require 'jade'
 less = require 'less'
@@ -15,6 +18,12 @@ renderSchema = require './schema'
 ROOT = path.dirname __dirname
 
 cache = {}
+
+fs = unionfs.ufs.use(nodefs).use(memfs.vol)
+requireFs = (filePath, fs) ->
+  if fs && fs.existsSync filePath
+    return requireFromString String(fs.readFileSync(filePath)), filePath
+  return require(filePath)
 
 # Utility for benchmarking
 benchmark =
@@ -173,6 +182,8 @@ getCss = (variables, styles, verbose, done) ->
 
       try
         css = result.css
+        folderPath = path.dirname compiledPath
+        fs.mkdirSync folderPath, {recursive:true}
         fs.writeFileSync compiledPath, css, 'utf-8'
       catch writeErr
         return done(errMsg 'Error writing cached CSS to file', writeErr)
@@ -208,11 +219,11 @@ getTemplate = (name, verbose, done) ->
 
   load = (filename, loadDone) ->
     try
-      loaded = require(filename)
+      loaded = requireFs(filename, fs)
     catch loadErr
       return loadDone(errMsg 'Unable to load template', loadErr)
 
-    loadDone null, require(filename)
+    loadDone null, requireFs(filename, fs)
 
   if verbose
     console.log "Using template #{name}"
@@ -255,13 +266,15 @@ getTemplate = (name, verbose, done) ->
         return done(errMsg 'Error compiling template', compileErr)
 
     try
+      folderPath = path.dirname compiledPath
+      fs.mkdirSync folderPath, {recursive:true}
       fs.writeFileSync compiledPath, compiled, 'utf-8'
     catch writeErr
       return done(errMsg 'Error writing cached template file', writeErr)
 
     benchmark.end 'jade-compile'
 
-    cache[key] = require(compiledPath)
+    cache[key] = requireFs(compiledPath, fs)
     done null, cache[key]
 
 modifyUriTemplate = (templateUri, parameters, colorize) ->
