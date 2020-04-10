@@ -21,9 +21,9 @@ cache = {}
 
 fs = unionfs.ufs.use(nodefs).use(memfs.vol)
 requireFs = (filePath, fs) ->
-  if ! fs.existsSync filePath
-    return require(filePath)
-  return requireFromString String(fs.readFileSync(filePath)), filePath
+  if fs && fs.existsSync filePath
+    return requireFromString String(fs.readFileSync(filePath)), filePath
+  return require(filePath)
 
 # Utility for benchmarking
 benchmark =

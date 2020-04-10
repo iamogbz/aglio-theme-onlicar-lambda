@@ -52,17 +52,6 @@ describe 'Layout', ->
       assert.include html, '"header-custom-heading-2"'
       done()
 
-  it 'Should include API hostname', (done) ->
-    ast =
-      metadata: [
-        {name: 'HOST', value: 'http://foo.com/'}
-      ]
-
-    theme.render ast, (err, html) ->
-      if err then return done err
-      assert.include html, 'http://foo.com/'
-      done()
-
   it 'Should include resource group name & description', (done) ->
     ast =
       resourceGroups: [
